@@ -1,0 +1,31 @@
+#!/bin/bash
+
+url="$1"
+
+if [[ -e "/usr/local/opt/chruby/share/chruby/chruby.sh" ]]; then
+  source /usr/local/opt/chruby/share/chruby/chruby.sh
+  chruby 2
+fi
+
+bundle check || bundle install
+
+# Wait up to 30 seconds for the URL to become a 200
+for i in {1..5}; do
+  # Make sure the URL we are trying is a CloudApp link
+  [[ "$url" == *"files.arko.net"* ]] || break
+  [[ "$url" == *".png" ]] || url="$url/content.png"
+  # If the URL is a 404, try again
+  code=$(curl -w "%{http_code}" -I -L -s -S -o /dev/null "$url")
+  [[ $code != "404" ]] && break || sleep 5
+done
+
+# Ask curl to print the URL after a redirect (if any). If there is no redirect,
+# curl will print the original URL.
+IMAGE_URL=$(curl -w "%{url_effective}\n" -I -L -s -S -o /dev/null "$url")
+
+echo "---
+type: photo
+source: $IMAGE_URL
+state: queue
+---
+" | bundle exec tumblr pipe --credentials=tumblr-credentials --host=mylittlehorseebooks.tumblr.com 2>&1 | sed '/^$/d' | tail -n1

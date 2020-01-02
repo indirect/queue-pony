@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if [[ -e "/usr/local/opt/chruby/share/chruby/chruby.sh" ]]; then
+  source /usr/local/opt/chruby/share/chruby/chruby.sh
+  chruby 2
+fi
+
+bundle check || bundle install
+
+bundle exec tumblr authorize --credentials=tumblr-credentials
