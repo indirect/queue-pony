@@ -33,14 +33,14 @@ GEM
     promise (0.3.1)
     public_suffix (4.0.6)
     rack (2.2.3)
-    rack-protection (2.1.0)
+    rack-protection (2.2.0)
       rack
     ruby2_keywords (0.0.5)
     simple_oauth (0.2.0)
-    sinatra (2.1.0)
+    sinatra (2.2.0)
       mustermann (~> 1.0)
       rack (~> 2.2)
-      rack-protection (= 2.1.0)
+      rack-protection (= 2.2.0)
       tilt (~> 2.0)
     thor (0.18.1)
     tilt (2.0.10)
@@ -50,7 +50,6 @@ PLATFORMS
   universal-darwin-17
 
 DEPENDENCIES
-  rack (~> 2.1, >= 2.1.4)
   tumblr!
   weary!
 
