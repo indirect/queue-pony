@@ -14,9 +14,6 @@ echo $url
 
 # Wait up to 30 seconds for the URL to become a 200
 for i in {1..5}; do
-  # Make sure the URL we are trying is a CloudApp link
-  [[ "$url" == *"files.arko.net"* ]] || break
-  [[ "$url" == *".png" ]] || url="$url/content.png"
   # If the URL is a 404, try again
   code=$(curl -w "%{http_code}" -I -L -s -S -o /dev/null "$url")
   [[ $code != "404" ]] && break || sleep 5
