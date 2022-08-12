@@ -16,7 +16,7 @@ photo = Tumblr::Client.new.photo(
   "mylittlehorseebooks.tumblr.com",
   {
     data: [ARGV.first],
-    state: "queued"
+    state: "queue"
   }
 )
 puts photo["display_text"]
