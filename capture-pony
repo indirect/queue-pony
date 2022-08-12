@@ -1,0 +1,15 @@
+#!/bin/bash
+
+if [[ -z "$BREW_PREFIX" ]]; then
+  export BREW_PREFIX=$([[ "$(arch)" == "arm64" ]] && echo "/opt/homebrew" || echo "/usr/local")
+fi
+
+if [[ -e "$BREW_PREFIX/opt/chruby/share/chruby/chruby.sh" ]]; then
+  source "$BREW_PREFIX/opt/chruby/share/chruby/chruby.sh"
+  chruby "$(ls ~/.rubies | tail -n1)"
+fi
+
+# set -xv
+bundle check || bundle install
+screencapture -tjpg -i /tmp/pony.jpg
+./bin/tumbl-pony /tmp/pony.jpg

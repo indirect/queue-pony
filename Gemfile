@@ -1,4 +1,2 @@
 source "https://rubygems.org"
-
-gem "tumblr", github: "indirect/tumblr"
-gem "weary", github: "indirect/weary"
+gem "tumblr_client", github: "tumblr/tumblr_client"

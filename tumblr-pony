@@ -1,0 +1,22 @@
+#!/usr/bin/env ruby
+
+require "bundler/setup"
+require "yaml"
+require "tumblr_client"
+
+path = File.join ENV['HOME'], '.tumblr'
+configuration = YAML.load_file path
+Tumblr.configure do |config|
+  Tumblr::Config::VALID_OPTIONS_KEYS.each do |key|
+    config.send(:"#{key}=", configuration[key.to_s])
+  end
+end
+
+photo = Tumblr::Client.new.photo(
+  "mylittlehorseebooks.tumblr.com",
+  {
+    data: [ARGV.first],
+    state: "queued"
+  }
+)
+puts photo["display_text"]
