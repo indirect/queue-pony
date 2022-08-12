@@ -12,4 +12,4 @@ fi
 # set -xv
 (bundle check || bundle install) > /dev/null
 screencapture -tjpg -i /tmp/pony.jpg
-./bin/tumbl-pony /tmp/pony.jpg
+./tumblr-pony /tmp/pony.jpg
