@@ -10,6 +10,6 @@ if [[ -e "$BREW_PREFIX/opt/chruby/share/chruby/chruby.sh" ]]; then
 fi
 
 # set -xv
-bundle check || bundle install
+(bundle check || bundle install) > /dev/null
 screencapture -tjpg -i /tmp/pony.jpg
 ./bin/tumbl-pony /tmp/pony.jpg
