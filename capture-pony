@@ -12,4 +12,8 @@ fi
 # set -xv
 (bundle check || bundle install) > /dev/null
 screencapture -tjpg -i /tmp/pony.jpg
-./tumblr-pony /tmp/pony.jpg
+if [[ -e /tmp/pony.jpg ]]; then
+  ./tumblr-pony /tmp/pony.jpg
+else
+  echo "No screenshot found to upload"
+fi
