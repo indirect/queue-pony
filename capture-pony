@@ -10,6 +10,9 @@ if [[ -e "$BREW_PREFIX/opt/chruby/share/chruby/chruby.sh" ]]; then
 fi
 
 # set -xv
+set -euo pipefail
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+cd "$DIR"
 (bundle check || bundle install) > /dev/null
 screencapture -tjpg -i /tmp/pony.jpg
 if [[ -e /tmp/pony.jpg ]]; then
