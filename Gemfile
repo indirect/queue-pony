@@ -1,2 +1,2 @@
 source "https://rubygems.org"
-gem "tumblr_client", github: "tumblr/tumblr_client"
+gem "tumblr_client", git: "https://github.com/tumblr/tumblr_client"
