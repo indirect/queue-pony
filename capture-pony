@@ -6,7 +6,7 @@ fi
 
 if [[ -e "$BREW_PREFIX/opt/chruby/share/chruby/chruby.sh" ]]; then
   source "$BREW_PREFIX/opt/chruby/share/chruby/chruby.sh"
-  chruby "$(ls ~/.rubies | tail -n1)"
+  chruby "$(ls ~/.rubies | grep -v system | tail -n1)"
 fi
 
 # set -xv
