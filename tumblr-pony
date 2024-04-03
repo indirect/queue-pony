@@ -19,4 +19,8 @@ photo = Tumblr::Client.new.photo(
     state: "queue"
   }
 )
-puts photo["display_text"]
+if photo["display_text"]
+  puts "pony: " << photo["display_text"]
+else
+  puts photo.inspect
+end

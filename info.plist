@@ -10,7 +10,7 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>C1F9B53D-FF32-472D-B1A5-7F16C622CC7F</string>
+				<string>D0C6B68D-6972-4D61-9C89-1EA6800B74FA</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -47,6 +47,44 @@
 		</array>
 		<key>C1F9B53D-FF32-472D-B1A5-7F16C622CC7F</key>
 		<array/>
+		<key>D0C6B68D-6972-4D61-9C89-1EA6800B74FA</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>E919D3A8-FD77-484E-BCAD-165DDAE7E72F</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>sourceoutputuid</key>
+				<string>5A1590E1-A184-4B41-BE1A-4F50B4F64A4A</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>58E6A962-7944-4DF5-A6A9-5562F38F0AE1</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>E919D3A8-FD77-484E-BCAD-165DDAE7E72F</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>C1F9B53D-FF32-472D-B1A5-7F16C622CC7F</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 	</dict>
 	<key>createdby</key>
 	<string>André Arko</string>
@@ -82,6 +120,48 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>matchmode</key>
+				<integer>1</integer>
+				<key>matchstring</key>
+				<string>^pony: </string>
+				<key>regexcaseinsensitive</key>
+				<false/>
+				<key>regexmultiline</key>
+				<false/>
+				<key>replacestring</key>
+				<string></string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.replace</string>
+			<key>uid</key>
+			<string>E919D3A8-FD77-484E-BCAD-165DDAE7E72F</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>pony</string>
+				<key>subtext</key>
+				<string>to the My Little Horse Ebooks tumblr</string>
+				<key>text</key>
+				<string>Capture and queue a pony</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>2C99F6F1-EF16-4CF1-9762-5D05A1FFAA4D</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>concurrently</key>
 				<false/>
 				<key>escaping</key>
@@ -105,21 +185,53 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>argumenttype</key>
-				<integer>2</integer>
-				<key>keyword</key>
-				<string>pony</string>
-				<key>subtext</key>
-				<string>to the My Little Horse Ebooks tumblr</string>
-				<key>text</key>
-				<string>Capture and queue a pony</string>
-				<key>withspace</key>
+				<key>conditions</key>
+				<array>
+					<dict>
+						<key>inputstring</key>
+						<string></string>
+						<key>matchcasesensitive</key>
+						<false/>
+						<key>matchmode</key>
+						<integer>4</integer>
+						<key>matchstring</key>
+						<string>^pony: </string>
+						<key>outputlabel</key>
+						<string></string>
+						<key>uid</key>
+						<string>5A1590E1-A184-4B41-BE1A-4F50B4F64A4A</string>
+					</dict>
+				</array>
+				<key>elselabel</key>
+				<string>else</string>
+				<key>hideelse</key>
 				<false/>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.input.keyword</string>
+			<string>alfred.workflow.utility.conditional</string>
 			<key>uid</key>
-			<string>2C99F6F1-EF16-4CF1-9762-5D05A1FFAA4D</string>
+			<string>D0C6B68D-6972-4D61-9C89-1EA6800B74FA</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>{query}</string>
+				<key>title</key>
+				<string>Pony error</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>58E6A962-7944-4DF5-A6A9-5562F38F0AE1</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -159,52 +271,6 @@
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>adduuid</key>
-				<false/>
-				<key>allowemptyfiles</key>
-				<true/>
-				<key>createintermediatefolders</key>
-				<false/>
-				<key>filename</key>
-				<string>~/pony_output.txt</string>
-				<key>filetext</key>
-				<string>{query}</string>
-				<key>ignoredynamicplaceholders</key>
-				<false/>
-				<key>relativepathmode</key>
-				<integer>0</integer>
-				<key>type</key>
-				<integer>1</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.writefile</string>
-			<key>uid</key>
-			<string>AB3DCBE2-F167-4682-AAA1-93359F8CEFA9</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>autopaste</key>
-				<false/>
-				<key>clipboardtext</key>
-				<string>{query}</string>
-				<key>ignoredynamicplaceholders</key>
-				<false/>
-				<key>transient</key>
-				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.clipboard</string>
-			<key>uid</key>
-			<string>53E4098F-9788-40D4-BEA1-179F3091517E</string>
-			<key>version</key>
-			<integer>3</integer>
-		</dict>
 	</array>
 	<key>readme</key>
 	<string></string>
@@ -231,26 +297,33 @@
 			<key>ypos</key>
 			<real>270</real>
 		</dict>
-		<key>53E4098F-9788-40D4-BEA1-179F3091517E</key>
+		<key>58E6A962-7944-4DF5-A6A9-5562F38F0AE1</key>
 		<dict>
 			<key>xpos</key>
-			<real>470</real>
+			<real>595</real>
 			<key>ypos</key>
-			<real>420</real>
-		</dict>
-		<key>AB3DCBE2-F167-4682-AAA1-93359F8CEFA9</key>
-		<dict>
-			<key>xpos</key>
-			<real>470</real>
-			<key>ypos</key>
-			<real>280</real>
+			<real>210</real>
 		</dict>
 		<key>C1F9B53D-FF32-472D-B1A5-7F16C622CC7F</key>
 		<dict>
 			<key>xpos</key>
-			<real>470</real>
+			<real>595</real>
 			<key>ypos</key>
-			<real>130</real>
+			<real>75</real>
+		</dict>
+		<key>D0C6B68D-6972-4D61-9C89-1EA6800B74FA</key>
+		<dict>
+			<key>xpos</key>
+			<real>440</real>
+			<key>ypos</key>
+			<real>150</real>
+		</dict>
+		<key>E919D3A8-FD77-484E-BCAD-165DDAE7E72F</key>
+		<dict>
+			<key>xpos</key>
+			<real>515</real>
+			<key>ypos</key>
+			<real>105</real>
 		</dict>
 	</dict>
 	<key>userconfigurationconfig</key>
