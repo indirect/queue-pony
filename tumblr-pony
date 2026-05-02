@@ -9,9 +9,7 @@ Gem.paths = { "GEM_HOME" => File.join(__dir__, ".bundle/tumblr-pony") }
 require "bundler/inline"
 
 gemfile do
-  source "https://rubygems.org"
-  gem "tumblr_client", git: "https://github.com/tumblr/tumblr_client"
-  gem "base64", "~> 0.2.0"
+  eval(File.read("Gemfile"))
 end
 
 require "yaml"
