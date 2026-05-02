@@ -1,6 +1,19 @@
 #!/usr/bin/env ruby
 
-require "bundler/setup"
+unless ARGV.first&.any?
+  puts "USAGE: tumblr-pony FILE"
+  exit 1
+end
+
+Gem.paths = { "GEM_HOME" => File.join(__dir__, ".bundle/tumblr-pony") }
+require "bundler/inline"
+
+gemfile do
+  source "https://rubygems.org"
+  gem "tumblr_client", git: "https://github.com/tumblr/tumblr_client"
+  gem "base64", "~> 0.2.0"
+end
+
 require "yaml"
 require "tumblr_client"
 
